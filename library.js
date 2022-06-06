@@ -41,10 +41,11 @@ function dispayBooks() {
         read.setAttribute('class', read.innerText)
         let closeButton = document.createElement('button');
         closeButton.setAttribute('class', 'close-button')
-        closeButton.innerText = "close";
+        closeButton.innerText = "Remove Book From Library";
         let libraryNumber = i;
         let cardNumber = document.createElement('p');
         cardNumber.innerText = libraryNumber;
+        cardNumber.setAttribute('class', 'card-number')
         console.log(libraryNumber)
         bookCard.append(title);
         bookCard.append(author);
@@ -57,6 +58,16 @@ function dispayBooks() {
         //function to allow button to remove library card
         closeButton.addEventListener('click', () => {
             cards.removeChild(bookCard)
+        })
+
+        read.addEventListener('click', () => {
+            if (read.innerText === 'read') {
+                read.innerHTML = 'unread';
+                read.setAttribute('class', 'unread');
+            } else {
+                read.innerHTML = 'read';
+                read.setAttribute('class', 'read');
+            }
         })
     }
 }
@@ -79,6 +90,7 @@ function bookForm() {
     }
     addBookToLibrary(bookTitle, bookAuthor, bookPages, bookReadValue);
     dispayBooks();
+    closeModal(form)
 }
 
 const submitForm = document.querySelector("#submit");
@@ -86,4 +98,23 @@ submitForm.addEventListener('click', () => {
     bookForm();
 })
 
+//javascript for form popup
 
+const openForm = document.querySelector('#add')
+const overlay = document.getElementById('overlay')
+openForm.addEventListener('click', () => {
+    const form = document.querySelector('.form');
+    openModal(form);
+});
+
+function openModal(modal) {
+    if (modal == null) return;
+    modal.classList.add('active')
+    overlay.classList.add('active')
+}
+
+function closeModal(modal) {
+    if (modal == null) return;
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+}

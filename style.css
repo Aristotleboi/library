@@ -1,0 +1,143 @@
+* {
+    margin: 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: rgb(184, 159, 241)
+}
+
+.header {
+    margin: 0px;
+    background-color: rgb(184, 159, 241);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
+    padding: 5px;
+}
+
+#add {
+    height: 3em;
+    width: 250px;
+    background-color: rgb(82, 155, 214);
+    font-size: 1.5em;
+    border: 0px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+
+.form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+    height: 200px;
+    max-height: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+}
+
+#submit {
+    margin-top: auto;
+    height: 30px;
+    margin: 10px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px 30px;
+    background-color: rgb(184, 159, 241);
+}
+
+.book-card {
+    border: 1px solid black;
+    width: 300px;
+    height: 200px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    background-color: rgb(230, 224, 243);
+}
+
+.close-button {
+    margin-bottom: 10px;
+    background-color: rgb(236, 233, 243);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 5px;
+    font-weight: 500;
+}
+
+.card-number {
+    display: none;
+}
+
+.read {
+    border: none;
+    background-color: rgb(61, 160, 61);
+    width: 100px;
+    height: 2em;
+    font-size: 1.2em;
+    font-weight: bolder;
+    color: rgb(32, 37, 32);
+    border-radius: 12px;
+}
+
+h3 {
+    padding-top: 15px;
+}
+
+.unread {
+    border: none;
+    background-color: rgb(184, 24, 12);
+    width: 100px;
+    height: 2em;
+    font-size: 1.2em;
+    font-weight: bolder;
+    color: rgb(37, 5, 2);
+    border-radius: 12px;
+}
