@@ -103,8 +103,14 @@ function bookForm() {
     closeModal(form)
 }
 
-const submitForm = document.querySelector("#submit");
-submitForm.addEventListener('click', () => {
+const submitForm = document.getElementById("submit");
+submitForm.addEventListener('click', (event) => {
+    console.log(titleInput.checkValidity())
+    if (titleInput.checkValidity() === false) {
+        titleInput.reportValidity()
+        return
+    }
+    event.preventDefault()
     bookForm();
 })
 
@@ -128,3 +134,6 @@ function closeModal(modal) {
     modal.classList.remove('active');
     overlay.classList.remove('active');
 }
+
+const titleInput = document.getElementById('book-title');
+
